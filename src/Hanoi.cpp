@@ -18,6 +18,7 @@ Hanoi::Hanoi(int discos)
 	}
 }
 
+<<<<<<< HEAD
 void Hanoi::llenar(int discos)
 {
     while (this->destino.empty() && this->origen.empty())
@@ -89,6 +90,14 @@ void Hanoi::mostrar()
 		}
     }
 	cout << "Origen\tAux\tDestino" << endl;
+=======
+void Hanoi::llenar() 
+{
+    for (int i = this->discos; i > 0; --i)
+    {
+	this->origen.push(i);
+    }
+>>>>>>> 807c34dad098ead9f8144540f097711cdb0feb41
 }
 
 void Hanoi::resolver()
