@@ -183,4 +183,62 @@ void Hanoi::resolver()
 			}
 		}
 	}
+<<<<<<< HEAD
 }
+=======
+}
+
+void Hanoi::mostrar()
+{
+    std::stack<int> auxO;
+    std::stack<int> auxA;
+    std::stack<int> auxD;
+    int mayor;
+    if (this->origen.size() > this->auxiliar.size() && this->origen.size() > this->destino.size())
+    {
+	mayor = origen.size();
+    }
+    else if (this->auxiliar.size() > this->origen.size() && this->auxiliar.size > this->destino.size())
+    {
+	mayor = auxiliar.size();
+    }
+    else
+    {
+	mayor = destino.size();
+    }
+    for (int i = mayor; i > 0; --i)
+    {
+	if (i <= origen.size())
+	{
+	    cout << origen.top() << auxO.push(origen.top());
+	    origen.pop();
+	}
+	else
+	{
+	    cout << "*"
+		      << " "
+	}
+
+	if (i <= auxiliar.size())
+	{
+	    cout << auxiliar.top() << " " auxA.push(auxiliar.top());
+	    auxiliar.pop();
+	}
+	else
+	{
+	    cout << "*"
+		      << " "
+	}
+	if (i <= destino.size())
+	{
+	    cout << destino.top() << endl;
+	    auxD.push(destino.top());
+	    destino.pop();
+	}
+	else
+	{
+	    cout << "*" << endl;
+	}
+    }
+}
+>>>>>>> f3306224305934731eeb3bfb0dc3811eaae04f8a
