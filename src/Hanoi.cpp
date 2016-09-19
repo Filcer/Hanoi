@@ -57,38 +57,38 @@ void Hanoi::mostrar()
 		//Origen
 		if (i <= origen.size())
 		{
-			cout << origen.top() << "\t";
+			cout << "| "<< origen.top() << " |\t" ;
 			auxO.push(origen.top());
 			origen.pop();
 		}
 		else
 		{
-			cout << " \t";
+			cout << "|   |\t";
 		}
 		//aux
 		if (i <= aux.size())
 		{
-			cout << aux.top() << "\t";
+			cout << "| " << aux.top() << " |\t";
 			auxA.push(aux.top());
 			aux.pop();
 		}
 		else
 		{
-			cout << " \t";
+			cout << "|   |\t";
 		}
 		//Destino
 		if (i <= destino.size())
 		{
-			cout << destino.top() << endl;
+			cout << "| " << destino.top() << " |" << endl;
 			auxD.push(destino.top());
 			destino.pop();
 		}
 		else
 		{
-			cout << " " << endl;
+			cout << "|   | " << endl;
 		}
     }
-	cout << "Origen\tAux\tDestino" << endl;
+	cout << "| O |\t| A |\t| D |" << endl;
 }
 
 void Hanoi::resolver()
