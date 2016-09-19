@@ -1,5 +1,6 @@
-//Main.cpp
-
+/* 	Nombres: Gabriel Filtzer Gorbach
+		 Daniel Ponce de León Suchil
+ */
 #include "Hanoi.h"
 
 int main()
@@ -16,7 +17,8 @@ int main()
     	cout << "3. Llenar Torres" << endl;
 		cout << "0. Salir del Programa..." << endl;
 		cin >> opcion;
-		switch(opcion){
+		switch(opcion)
+		{
 			case 1:
 				H.mostrar();
 				break;
