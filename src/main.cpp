@@ -4,7 +4,7 @@
  *
  */
 
-#include <Hanoi.h>
+#include "Hanoi.h"
 
 int main()
 {
