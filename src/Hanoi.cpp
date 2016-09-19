@@ -112,14 +112,6 @@ void Hanoi::resolver()
 	}
 }
 
-void Hanoi::llenar() //¿incompleto?
-{
-    for (int i = this->discos; i > 0; --i)
-    {
-	this->origen.push(i);
-    }
-}
-
 void Hanoi::mostrar()
 {
     std::stack<int> auxO;
