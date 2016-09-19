@@ -1,90 +1,175 @@
 //cuando se imprima la torre tiene que haber una linea entre cada paso
 
 /** Nombre(s):
-Descripción: ________
-
-**/
+ *	Descripción: ________
+ *
+ *
+ */
 
 #include "Hanoi.h"
 
-Hanoi::Hanoi(int Discos)
+Hanoi::Hanoi(int discos)
 {
-
-this->Discos=Discos;
-this->numMovimientos=pow(2,this->)
-
+    this->discos = discos;
+    this->movimientos = pow(2, this->discos);
+	for (int i = 1 ; i <= discos ; ++i)
+	{
+		origen.push(i);
+	}
 }
 
-
-void Hanoi::Resolver()
+void Hanoi::resolver()
 {
-
-	if(this->Discos%2==0)
+	if (n % 2 == 0)
 	{
-		for(int i=1;i>this->numMovimientos;++i)
+		//Caso n = par
+		for (int i = 1 ; i <= movimientos ; ++i)
 		{
-			int O=(this->origen.empty())?0:this->origen.top();
-			int A=
+			switch (i % 3)
+			{
+			case 1:
+				if (origen < aux){
+					aux.push(origen.top());
+					origen.pop();
+				}
+				else
+				{
+					origen.push(aux.top());
+					aux.pop();
+				}
+				break;
+			case 2:
+				if (origen < destino)
+				{
+					destino.push(origen.top());
+					origen.pop();
+				}
+				else
+				{
+					origen.push(destino.pop());
+					destino.pop();
+				}
+				break;
+			case 3:
+				if (aux < destino)
+				{
+					destino.push(aux.top());
+					aux.pop();
+				}
+				else
+				{
+					aux.push(destino.top());
+					destino.pop();
+				}
+				break;
+			}
+		}
+	}
+	else
+	{
+		//Caso n = impar
+		for (int i = 1 ; i <= movimientos ; ++i)
+		{
+			switch (i % 3)
+			{
+			case 2:
+				if (origen < aux){
+					aux.push(origen.top());
+					origen.pop();
+				}
+				else
+				{
+					origen.push(aux.top());
+					aux.pop();
+				}
+				break;
+			case 1:
+				if (origen < destino)
+				{
+					destino.push(origen.top());
+					origen.pop();
+				}
+				else
+				{
+					origen.push(destino.pop());
+					destino.pop();
+				}
+				break;
+			case 3:
+				if (aux < destino)
+				{
+					destino.push(aux.top());
+					aux.pop();
+				}
+				else
+				{
+					aux.push(destino.top());
+					destino.pop();
+				}
+				break;
+			}
 		}
 	}
 }
 
-
-void Hanoi::LlenarTorre() //¿incompleto?
+void Hanoi::llenar() //¿incompleto?
 {
-	for(int i= this->Discos;i>0;--i)
+    for (int i = this->discos; i > 0; --i)
+    {
+	this->origen.push(i);
+    }
+}
+
+void Hanoi::mostrar()
+{
+    std::stack<int> auxO;
+    std::stack<int> auxA;
+    std::stack<int> auxD;
+    int mayor;
+    if (this->origen.size() > this->auxiliar.size() && this->origen.size() > this->destino.size())
+    {
+	mayor = origen.size();
+    }
+    else if (this->auxiliar.size() > this->origen.size() && this->auxiliar.size > this->destino.size())
+    {
+	mayor = auxiliar.size();
+    }
+    else
+    {
+	mayor = destino.size();
+    }
+    for (int i = mayor; i > 0; --i)
+    {
+	if (i <= origen.size())
 	{
-		this->origen.push(i);
+	    cout << origen.top() << auxO.push(origen.top());
+	    origen.pop();
 	}
+	else
+	{
+	    cout << "*"
+		      << " "
+	}
+
+	if (i <= auxiliar.size())
+	{
+	    cout << auxiliar.top() << " " auxA.push(auxiliar.top());
+	    auxiliar.pop();
+	}
+	else
+	{
+	    cout << "*"
+		      << " "
+	}
+	if (i <= destino.size())
+	{
+	    cout << destino.top() << endl;
+	    auxD.push(destino.top());
+	    destino.pop();
+	}
+	else
+	{
+	    cout << "*" << endl;
+	}
+    }
 }
-
-void Hanoi::MostrarTorres()
-{
-	std::stack<int> aux0;
-	std::stack<int> auxA;
-	std::stack<int> auxD;
-	int mayor;
-	if(this->origen.size() >this->auxiliar.size() && this->origen.size() >this->destino.size())
-		{
-			mayor=origen.size();
-		}else if(this->auxiliar.size() >this->origen.size() && this->auxiliar.size > this->destino.size())
-		{
-			mayor=auxiliar.size();
-		}else
-		{
-			mayor=destino.size();
-		}
-		for(int i=mayor; i>0; --i)
-		{
-			if(i<=origen.size())
-			{
-				std::cout<<origen.top()<<" "
-				aux0.push(origen.top());
-				origen.pop();
-			}else
-			{
-				std::cout<<"*"<<" "
-			}
-
-			if(i<=auxiliar.size())
-			{
-				std::cout<<auxiliar.top()<<" "
-				auxA.push(auxiliar.top());
-				auxiliar.pop();
-			}else
-			{
-				std::cout<<"*"<<" "
-			}
-			if(i<=destino.size())
-			{
-				std::cout<<destino.top()<<std::endl;
-				auxD.push(destino.top());
-				destino.pop();
-			}else
-			{
-				std::cout<<"*"<<endl; 
-			}
-		}
-}
-
-

@@ -21,4 +21,8 @@ public:
 
 private:
 	int discos;
+	int movimientos;
+	Stack<int> origen;
+	Stack<int> aux;
+	Stack<int> destino;
 };
