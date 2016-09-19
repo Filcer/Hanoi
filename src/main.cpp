@@ -4,8 +4,11 @@
 
 int main()
 {
+	int discos;
 	std::cout<<"Torres de Hanoi"<<std:endl;
-	Hanoi H(3);
+	std::cout<<"Ingrese el Numero de discos: "<<std:endl;
+	cin>>discos;
+	Hanoi H(discos);
 	H.LlenarTorre();
 	H.MostrarTorres();
 	H.Resolver();
