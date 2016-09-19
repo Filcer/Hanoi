@@ -1,5 +1,3 @@
-//cuando se imprima la torre tiene que haber una linea entre cada paso
-
 /** Nombre(s):
  *	Descripción: ________
  *
