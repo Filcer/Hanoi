@@ -1,4 +1,5 @@
-/* 	Nombres: Gabriel Filtzer Gorbach
+/**
+ *	Nombres: Gabriel Filtzer Gorbach
  *		Daniel Ponce de León Súchil
  */
 

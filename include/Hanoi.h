@@ -1,7 +1,7 @@
 /**
  *	Autores: 
- *	
- *
+ *		Gabriel Filtzer Gorbach
+ *		Daniel Ponce de León súchil
  */
 
 #include <iostream>

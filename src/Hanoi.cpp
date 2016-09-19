@@ -1,4 +1,6 @@
-/** Nombre(s):
+/** 
+ *	Nombre(s): Gabriel Filtzer Gorbach
+ *		Daniel Ponce de León Súchil
  *	Descripción: ________
  *
  *
