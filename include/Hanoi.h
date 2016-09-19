@@ -12,17 +12,15 @@ using namespace std;
 class Hanoi
 {
 public:
-	Hanoi();
-	void llenar();
+	Hanoi(int discos);
+	void llenar(int discos);
 	void mostrar();
 	void resolver();
-	void empty();
-	~Hanoi();
 
 private:
 	int discos;
 	int movimientos;
-	Stack<int> origen;
-	Stack<int> aux;
-	Stack<int> destino;
+	stack<int> origen;
+	stack<int> aux;
+	stack<int> destino;
 };

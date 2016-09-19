@@ -1,15 +1,19 @@
-//Main.cpp
+/**
+ *
+ *
+ *
+ */
 
 #include <Hanoi.h>
 
 int main()
 {
-	std::cout<<"Torres de Hanoi"<<std:endl;
+	cout<<"\tTorres de Hanoi"<<endl;
 	Hanoi H(3);
-	H.LlenarTorre();
-	H.MostrarTorres();
-	H.Resolver();
-	H.MostrarTorres();
+	H.llenar(3);
+	H.mostrar();
+	H.resolver();
+	H.mostrar();
 	return 0;
 }
 
