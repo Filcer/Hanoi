@@ -1,5 +1,6 @@
-//Main.cpp
-
+/* 	Nombres: Gabriel Filtzer Gorbach
+		 Daniel Ponce de León Suchil
+ */
 #include <Hanoi.h>
 
 int main()
