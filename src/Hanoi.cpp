@@ -18,6 +18,79 @@ Hanoi::Hanoi(int discos)
 	}
 }
 
+void Hanoi::llenar(int discos)
+{
+    while (this->destino.empty() && this->origen.empty())
+	{
+		destino.pop();
+		origen.pop();
+	}
+	for (int i = 1; i <= discos; ++i)
+	{
+		origen.push(i);
+	}
+}
+
+void Hanoi::mostrar()
+{
+    stack<int> auxO;
+    stack<int> auxA;
+    stack<int> auxD;
+    int mayor;
+    if (origen.size() > aux.size())
+	{
+		if (aux.size() >= destino.size())
+		{
+			mayor = origen.size();
+		}
+		else if (destino.size() >= origen.size())
+		{
+			mayor = destino.size();
+		}
+		else
+		{
+			mayor = aux.size();
+		}
+	}
+    for (int i = mayor; i > 0; --i)
+    {
+		//Origen
+		if (i <= origen.size())
+		{
+			cout << origen.top() << "\t";
+			auxO.push(origen.top());
+			origen.pop();
+		}
+		else
+		{
+			cout << " \t";
+		}
+		//Auxiliar
+		if (i <= auxiliar.size())
+		{
+			cout << auxiliar.top() << "\t";
+			auxA.push(auxiliar.top());
+			auxiliar.pop();
+		}
+		else
+		{
+			cout << " \t";
+		}
+		//Destino
+		if (i <= destino.size())
+		{
+			cout << destino.top() << endl;
+			auxD.push(destino.top());
+			destino.pop();
+		}
+		else
+		{
+			cout << " " << endl;
+		}
+    }
+	cout << "Origen\tAux\tDestino" << endl;
+}
+
 void Hanoi::resolver()
 {
 	if (n % 2 == 0)
@@ -110,66 +183,4 @@ void Hanoi::resolver()
 			}
 		}
 	}
-}
-
-void Hanoi::llenar() //¿incompleto?
-{
-    for (int i = this->discos; i > 0; --i)
-    {
-	this->origen.push(i);
-    }
-}
-
-void Hanoi::mostrar()
-{
-    std::stack<int> auxO;
-    std::stack<int> auxA;
-    std::stack<int> auxD;
-    int mayor;
-    if (this->origen.size() > this->auxiliar.size() && this->origen.size() > this->destino.size())
-    {
-	mayor = origen.size();
-    }
-    else if (this->auxiliar.size() > this->origen.size() && this->auxiliar.size > this->destino.size())
-    {
-	mayor = auxiliar.size();
-    }
-    else
-    {
-	mayor = destino.size();
-    }
-    for (int i = mayor; i > 0; --i)
-    {
-	if (i <= origen.size())
-	{
-	    cout << origen.top() << auxO.push(origen.top());
-	    origen.pop();
-	}
-	else
-	{
-	    cout << "*"
-		      << " "
-	}
-
-	if (i <= auxiliar.size())
-	{
-	    cout << auxiliar.top() << " " auxA.push(auxiliar.top());
-	    auxiliar.pop();
-	}
-	else
-	{
-	    cout << "*"
-		      << " "
-	}
-	if (i <= destino.size())
-	{
-	    cout << destino.top() << endl;
-	    auxD.push(destino.top());
-	    destino.pop();
-	}
-	else
-	{
-	    cout << "*" << endl;
-	}
-    }
 }
