@@ -1,6 +1,7 @@
 /* 	Nombres: Gabriel Filtzer Gorbach
-		 Daniel Ponce de León Suchil
+ *		Daniel Ponce de León Súchil
  */
+
 #include "Hanoi.h"
 
 int main()
