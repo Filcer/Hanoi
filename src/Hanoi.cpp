@@ -1,9 +1,5 @@
-//cuando se imprima la torre tiene que haber una linea entre cada paso
-
-/** Nombre(s):
- *	Descripción: ________
- *
- *
+/* 	Nombres: Gabriel Filtzer Gorbach
+		 Daniel Ponce de León Suchil
  */
 
 #include "Hanoi.h"
