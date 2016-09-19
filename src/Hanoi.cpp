@@ -18,6 +18,14 @@ Hanoi::Hanoi(int discos)
 	}
 }
 
+void Hanoi::llenar() 
+{
+    for (int i = this->discos; i > 0; --i)
+    {
+	this->origen.push(i);
+    }
+}
+
 void Hanoi::resolver()
 {
 	if (n % 2 == 0)
