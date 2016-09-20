@@ -117,22 +117,22 @@ void Hanoi::resolver()
 	mostrar();
 	if ((discos % 2) == 0)
 	{
-		//Caso n = par
+		cout << "Caso n = par" << endl;
 		for (int i = 1 ; i <= movimientos ; ++i)
 		{
-			cout << "Movimiento " << i << endl;
+			cout << "Movimiento " << i << ": ";
 			switch (i % 3)
 			{
 				case 1:
 					if (aux.size() == 0 || origen.top() < aux.top())
 					{
-						//Origen --> Aux
+						cout << "Origen --> Aux" << endl;
 						aux.push(origen.top());
 						origen.pop();
 					}
 					else
 					{
-						//Aux --> Origen
+						cout << "Aux --> Origen" << endl;
 						origen.push(aux.top());
 						aux.pop();
 					}
@@ -140,27 +140,27 @@ void Hanoi::resolver()
 				case 2:
 					if (destino.size() == 0 || origen.top() < destino.top())
 					{
-						//Origen --> Destino
+						cout << "Origen --> Destino" << endl;
 						destino.push(origen.top());
 						origen.pop();
 					}
 					else
 					{
-						//Destino --> Origen
+						cout << "Destino --> Origen" << endl;
 						origen.push(destino.top());
 						destino.pop();
 					}
 					break;
-				case 3:
+				case 0:
 					if (destino.size() == 0 || aux.top() < destino.top())
 					{
-						//Aux --> Destino
+						cout << "Aux --> Destino" << endl;
 						destino.push(aux.top());
 						aux.pop();
 					}
 					else
 					{
-						//Destino --> Aux
+						cout << "Destino --> Aux" << endl;
 						aux.push(destino.top());
 						destino.pop();
 					}
@@ -171,22 +171,22 @@ void Hanoi::resolver()
 	}
 	else
 	{
-		//Caso n = impar
+		cout << "Caso n = impar" << endl;
 		for (int i = 1 ; i <= movimientos ; ++i)
 		{
-			cout << "Movimiento " << i << endl;
+			cout << "Movimiento " << i << ": ";
 			switch (i % 3)
 			{
 				case 1:
 					if (destino.size() == 0 || origen.top() < destino.top())
 					{
-						//Origen --> Destino
+						cout << "Origen --> Destino" << endl;
 						destino.push(origen.top());
 						origen.pop();
 					}
 					else
 					{
-						//Destino --> Origen
+						cout << "Destino --> Origen" << endl;
 						origen.push(destino.top());
 						destino.pop();
 					}
@@ -194,33 +194,33 @@ void Hanoi::resolver()
 				case 2:
 					if (aux.size() == 0 || origen.top() < aux.top())
 					{
-						//Origen --> Aux
+						cout << "Origen --> Aux" << endl;
 						aux.push(origen.top());
 						origen.pop();
 					}
 					else
 					{
-						//Aux --> Origen
+						cout << "Aux --> Origen" << endl;
 						origen.push(aux.top());
 						aux.pop();
 					}
 					break;
-				case 3:
+				case 0:
 					if (destino.size() == 0 || aux.top() < destino.top())
 					{
-						//Aux --> Destino
+						cout << "Aux --> Destino" << endl;
 						destino.push(aux.top());
 						aux.pop();
 					}
 					else
 					{
-						//Destino --> Aux
+						cout << "Destino --> Aux" << endl;
 						aux.push(destino.top());
 						destino.pop();
 					}
 					break;
 			}
+			mostrar();
 		}
-		mostrar();
 	}
 }
