@@ -12,7 +12,7 @@ Hanoi::Hanoi(int discos)
 {
     this->discos = discos;
     this->movimientos = pow(2, this->discos);
-	for (int i = 1 ; i <= discos ; ++i)
+	for (int i = discos ; i > 0 ; --i)
 	{
 		origen.push(i);
 	}
@@ -20,14 +20,14 @@ Hanoi::Hanoi(int discos)
 
 void Hanoi::llenar(int discos)
 {
-    while (!(this->destino.empty()) && !(this->origen.empty()))
+    while ((origen.size() != 0) && (origen.size() != 0))
 	{
-		if (!destino.empty())
+		if (destino.size() != 0)
 			destino.pop();
-		if (!origen.empty())
+		if (origen.size() != 0)
 			origen.pop();
 	}
-	for (int i = 1; i <= discos; ++i)
+	for (int i = discos; i > 0; --i)
 	{
 		origen.push(i);
 	}
@@ -90,54 +90,83 @@ void Hanoi::mostrar()
 			cout << "|   | " << endl;
 		}
     }
-	cout << "| O |\t| A |\t| D |" << endl;
+	for (int i = mayor; i > 0; --i)
+	{
+		if (!auxO.empty())
+		{
+			origen.push(auxO.top());
+			auxO.pop();
+		}
+		if (!auxA.empty())
+		{
+			aux.push(auxA.top());
+			auxA.pop();
+		}
+		if (!auxD.empty())
+		{
+			destino.push(auxD.top());
+			auxD.pop();
+		}
+	}
+	cout << " Orig.	 Aux.	 Dest." << endl;
+	cout << "___________________________" << endl;
 }
 
 void Hanoi::resolver()
 {
-	if (discos % 2 == 0)
+	mostrar();
+	if ((discos % 2) == 0)
 	{
 		//Caso n = par
 		for (int i = 1 ; i <= movimientos ; ++i)
 		{
+			cout << "Movimiento " << i << endl;
 			switch (i % 3)
 			{
-			case 1:
-				if (origen < aux){
-					aux.push(origen.top());
-					origen.pop();
-				}
-				else
-				{
-					origen.push(aux.top());
-					aux.pop();
-				}
-				break;
-			case 2:
-				if (origen < destino)
-				{
-					destino.push(origen.top());
-					origen.pop();
-				}
-				else
-				{
-					origen.push(destino.top());
-					destino.pop();
-				}
-				break;
-			case 3:
-				if (aux < destino)
-				{
-					destino.push(aux.top());
-					aux.pop();
-				}
-				else
-				{
-					aux.push(destino.top());
-					destino.pop();
-				}
-				break;
+				case 1:
+					if (aux.size() == 0 || origen.top() < aux.top())
+					{
+						//Origen --> Aux
+						aux.push(origen.top());
+						origen.pop();
+					}
+					else
+					{
+						//Aux --> Origen
+						origen.push(aux.top());
+						aux.pop();
+					}
+					break;
+				case 2:
+					if (destino.size() == 0 || origen.top() < destino.top())
+					{
+						//Origen --> Destino
+						destino.push(origen.top());
+						origen.pop();
+					}
+					else
+					{
+						//Destino --> Origen
+						origen.push(destino.top());
+						destino.pop();
+					}
+					break;
+				case 3:
+					if (destino.size() == 0 || aux.top() < destino.top())
+					{
+						//Aux --> Destino
+						destino.push(aux.top());
+						aux.pop();
+					}
+					else
+					{
+						//Destino --> Aux
+						aux.push(destino.top());
+						destino.pop();
+					}
+					break;
 			}
+			mostrar();
 		}
 	}
 	else
@@ -145,50 +174,53 @@ void Hanoi::resolver()
 		//Caso n = impar
 		for (int i = 1 ; i <= movimientos ; ++i)
 		{
+			cout << "Movimiento " << i << endl;
 			switch (i % 3)
 			{
-			case 2:
-				if (origen < aux){
-					//Origen --> Aux
-					aux.push(origen.top());
-					origen.pop();
-				}
-				else
-				{
-					//Aux --> Origen
-					origen.push(aux.top());
-					aux.pop();
-				}
-				break;
-			case 1:
-				if (origen < destino)
-				{
-					//Origen --> Destino
-					destino.push(origen.top());
-					origen.pop();
-				}
-				else
-				{
-					//Destino --> Origen
-					origen.push(destino.top());
-					destino.pop();
-				}
-				break;
-			case 3:
-				if (aux < destino)
-				{
-					//Aux --> Destino
-					destino.push(aux.top());
-					aux.pop();
-				}
-				else
-				{
-					//Destino --> Aux
-					aux.push(destino.top());
-					destino.pop();
-				}
-				break;
+				case 1:
+					if (destino.size() == 0 || origen.top() < destino.top())
+					{
+						//Origen --> Destino
+						destino.push(origen.top());
+						origen.pop();
+					}
+					else
+					{
+						//Destino --> Origen
+						origen.push(destino.top());
+						destino.pop();
+					}
+					break;
+				case 2:
+					if (aux.size() == 0 || origen.top() < aux.top())
+					{
+						//Origen --> Aux
+						aux.push(origen.top());
+						origen.pop();
+					}
+					else
+					{
+						//Aux --> Origen
+						origen.push(aux.top());
+						aux.pop();
+					}
+					break;
+				case 3:
+					if (destino.size() == 0 || aux.top() < destino.top())
+					{
+						//Aux --> Destino
+						destino.push(aux.top());
+						aux.pop();
+					}
+					else
+					{
+						//Destino --> Aux
+						aux.push(destino.top());
+						destino.pop();
+					}
+					break;
 			}
 		}
+		mostrar();
 	}
 }
